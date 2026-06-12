@@ -77,4 +77,13 @@ export const reportAPI = {
   getMonthlyDetails: (month) => API.get(`/reports/monthly?month=${month}`)
 };
 
+// Notification API calls
+export const notificationAPI = {
+  getAll: () => API.get('/notifications'),
+  markAllRead: () => API.put('/notifications/read-all'),
+  markAsRead: (id) => API.put(`/notifications/${id}/read`),
+  getSettings: () => API.get('/notifications/settings'),
+  updateSettings: (data) => API.put('/notifications/settings', data)
+};
+
 export default API;

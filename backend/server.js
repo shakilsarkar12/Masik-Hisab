@@ -15,6 +15,8 @@ const expenseRoutes = require('./routes/expenseRoutes');
 const budgetRoutes = require('./routes/budgetRoutes');
 const reportRoutes = require('./routes/reportRoutes');
 const incomeSourceRoutes = require('./routes/incomeSourceRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
+const { initCronScheduler } = require('./config/cronScheduler');
 
 const app = express();
 
@@ -59,12 +61,16 @@ app.use(clerkMiddleware());
 // Connect to MongoDB
 connectDB();
 
+// Initialize Scheduler
+initCronScheduler();
+
 // Mount routes
 app.use('/api/incomes', requireAuth, incomeRoutes);
 app.use('/api/expenses', requireAuth, expenseRoutes);
 app.use('/api/budgets', requireAuth, budgetRoutes);
 app.use('/api/reports', requireAuth, reportRoutes);
 app.use('/api/income-sources', requireAuth, incomeSourceRoutes);
+app.use('/api/notifications', requireAuth, notificationRoutes);
 
 // Root route
 app.get('/', (req, res) => {
