@@ -138,7 +138,7 @@ const Navbar = ({ title, onMenuClick }) => {
 
             {/* Dropdown panel */}
             {dropdownOpen && (
-              <div className="absolute right-0 mt-3 w-80 sm:w-96 glass-panel rounded-2xl border border-slate-800 shadow-2xl z-40 overflow-hidden animate-in fade-in slide-in-from-top-3 duration-200">
+              <div className="absolute right-0 mt-3 w-80 sm:w-96 bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl z-40 overflow-hidden animate-in fade-in slide-in-from-top-3 duration-200">
                 {/* Panel Header */}
                 <div className="p-4 border-b border-slate-800 bg-slate-950/40 flex items-center justify-between">
                   <span className="font-bold text-slate-200 text-sm">Notifications</span>
