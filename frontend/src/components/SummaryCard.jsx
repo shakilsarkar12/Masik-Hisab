@@ -31,23 +31,23 @@ const SummaryCard = ({ title, value, icon, color = 'sky' }) => {
   const scheme = colorSchemes[color] || colorSchemes.sky;
 
   return (
-    <div className={`glass-card p-6 rounded-2xl border ${scheme.border} bg-gradient-to-br ${scheme.bg} relative overflow-hidden flex flex-col justify-between h-36`}>
+    <div className={`glass-card p-4 sm:p-6 rounded-2xl border ${scheme.border} bg-gradient-to-br ${scheme.bg} relative overflow-hidden flex flex-col justify-between h-32 sm:h-36`}>
       {/* Background radial highlight */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-white/[0.01] rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-20 h-20 bg-white/[0.01] rounded-full blur-2xl pointer-events-none"></div>
 
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{title}</p>
-          <h3 className="text-3xl font-extrabold text-slate-100 mt-2 font-display">
+      <div className="flex items-start justify-between gap-1">
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider truncate">{title}</p>
+          <h3 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-100 mt-1 sm:mt-2 font-display truncate">
             ${Number(value).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </h3>
         </div>
-        <div className={`p-3 rounded-xl ${scheme.iconBg} shadow-sm`}>
+        <div className={`p-2 sm:p-3 rounded-xl ${scheme.iconBg} shadow-sm shrink-0`}>
           {icon}
         </div>
       </div>
 
-      <div className="mt-4 flex items-center gap-1.5 text-xs text-slate-500">
+      <div className="mt-2 sm:mt-4 flex items-center gap-1.5 text-[10px] sm:text-xs text-slate-500">
         <span className={`${scheme.text} font-medium`}>Updated live</span>
       </div>
     </div>
